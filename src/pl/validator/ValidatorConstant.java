@@ -4,8 +4,12 @@ public interface ValidatorConstant {
     String CLASS_NAME_START = "public class ";
     String CLASS_NAME_FINISH = ";";
 
-    String IMPORT_START = "import ";
-    String IMPORT_FINISH = ";";
+    String CLASS_IMPORT_START = "import ";
+    String CLASS_IMPORT_FINISH = ";";
+
+    String STATIC_IMPORT_START = "import static ";
+    String STATIC_IMPORT_FINISH = ";";
+
 
     String PACKAGE_START = "package ";
     String PACKAGE_FINISH = ";";

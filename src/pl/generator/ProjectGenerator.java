@@ -1,4 +1,4 @@
-package pl;
+package pl.generator;
 
 import java.util.*;
 import java.util.stream.Collectors;
