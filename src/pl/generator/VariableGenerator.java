@@ -1,4 +1,4 @@
 package pl.generator;
 
-public class VariableGenerator{
+public class VariableGenerator {
 }

@@ -10,12 +10,13 @@ public interface ValidatorConstant {
     String PACKAGE_START = "package ";
     String PACKAGE_FINISH = ";";
 
-    String VARIABLE_PATTERN_FOR_CLASS = "\\G[a-zA-z]+\\s{1}[a-zA-z]+[;]{1}$";
-    String VARIABLE_PATTERN_FOR_LIST = "\\G[a-zA-z]+<{1}[a-zA-z<>]+>{1}\\s{1}[a-zA-z]+;{1}$";
-    String VARIABLE_PATTERN_FOR_MAP = "\\G[a-zA-z]+<{1}[a-zA-z<>]+[,]{1}\\s{1}[a-zA-z<>]+[>]{1}\\s{1}[a-zA-z]+;{1}$";
-    String VARIABLE_PATTERN_FOR_CLASS_WITH_SETTING_ACCESS = "\\G[a-zA-z]+\\s{1}[a-zA-z]+\\s{1}[a-zA-z]+[;]{1}$";
-    String VARIABLE_PATTERN_FOR_LIST_WITH_SETTING_ACCESS = "\\G[a-zA-z]+\\s{1}[a-zA-z]+<{1}[a-zA-z<>]+>{1}\\s{1}[a-zA-z]+[;]{1}$";
-    String VARIABLE_PATTERN_FOR_MAP_WITH_SETTING_ACCESS = "\\G[a-zA-z]+\\s{1}[a-zA-z]+<{1}[a-zA-z<>]+[,]{1}\\s{1}[a-zA-z<>]+[>]{1}\\s{1}[a-zA-z]+[;]{1}$";
+    String VARIABLE_PATTERN_FOR_CLASS = "\\G[a-zA-Z]+\\s[a-zA-Z]+;$";
+    String VARIABLE_PATTERN_FOR_LIST = "\\G[a-zA-Z]+<[a-zA-Z<>]+>\\s[a-zA-Z]+;$";
+    String VARIABLE_PATTERN_FOR_MAP = "\\G[a-zA-Z]+<[a-zA-Z<>]+,\\s[a-zA-Z<>]+>\\s[a-zA-Z]+;$";
+
+    String VARIABLE_PATTERN_FOR_CLASS_WITH_SETTING_ACCESS = "\\G[a-z]+\\s[a-zA-Z]+\\s[a-zA-Z]+;$";
+    String VARIABLE_PATTERN_FOR_LIST_WITH_SETTING_ACCESS = "\\G[a-z]+\\s[a-zA-Z]+<[a-zA-Z<>]+>\\s[a-zA-Z]+;$";
+    String VARIABLE_PATTERN_FOR_MAP_WITH_SETTING_ACCESS = "\\G[a-z]+\\s[a-zA-Z]+<[a-zA-Z<>]+,\\s[a-zA-Z<>]+>\\s[a-zA-Z]+;$";
 
 
 }

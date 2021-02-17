@@ -1,5 +1,8 @@
 package pl.model;
 
+import java.io.File;
+import java.util.List;
+
 public class Variable {
 
     private String className;
@@ -12,11 +15,10 @@ public class Variable {
 
     }
 
-    public Variable(String line) {
 
+    public static List<Variable> build(File file) {
+        return null;
     }
-
-
 }
 
 

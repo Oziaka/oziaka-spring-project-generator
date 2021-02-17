@@ -1,59 +1,56 @@
 package pl.model;
 
 import pl.validator.ClassNameValidator;
-import pl.validator.ImportValidator;
-import pl.validator.PackageValidator;
+import pl.validator.ValidatorConstant;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.nio.file.Paths;
+
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class AClass {
 
     private Package aPackage;
-    private List<String> imports;
+    private List<Import> imports;
     private String className;
     private List<Variable> variables;
 
     public static AClass build(File file) {
-        return new ClassBuilder(file).build();
+        return new ClassBuilder().build(file);
     }
 
     private static class ClassBuilder {
 
-        private File file;
-
-        public AClass build() {
+        public AClass build(File file) {
             AClass aClass = new AClass();
-            Scanner scanner = null;
+            aClass.aPackage = Package.build(file);
+            aClass.imports = Import.build(file);
+            aClass.className = AClass.buildClassName(file);
+            aClass.variables = Variable.build(file);
+            return aClass;
+        }
+    }
+
+    private static String buildClassName(File file) {
+        return ClassNameBuilder.build(file);
+    }
+
+    private static class ClassNameBuilder {
+        private static String build(File file) {
             try {
-                scanner = new Scanner(file);
+                Scanner scanner = new Scanner(file);
+                ClassNameValidator classNameValidator = new ClassNameValidator();
+                while (scanner.hasNext()) {
+                    String line = scanner.nextLine();
+                    if (classNameValidator.valid(line)) {
+                        return line.replace(ValidatorConstant.CLASS_NAME_START, "").replace(ValidatorConstant.CLASS_NAME_FINISH, "");
+                    }
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-
-            PackageValidator packageValidator = new PackageValidator();
-            ImportValidator importValidator = new ImportValidator();
-            ClassNameValidator classNameValidator = new ClassNameValidator();
-
-            while (scanner.hasNext()) {
-                String line = scanner.nextLine();
-                if (packageValidator.valid(line)) {
-                    aClass.aPackage = Package.build(line);
-                    break;
-                }
-            }
-            return aClass;
+            return null;
         }
-
-        ClassBuilder(File file) {
-
-        }
-
     }
 }

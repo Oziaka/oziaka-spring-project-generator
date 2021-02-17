@@ -1,5 +1,5 @@
 package pl.validator;
 
-public  interface Validator {
+public interface Validator {
     boolean valid(String line);
 }
